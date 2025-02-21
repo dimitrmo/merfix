@@ -1,15 +1,15 @@
 import init, {
     remove_exif,
-    detect_image_type,
+    detect_image_mime_type,
     detect_image_extension,
-    supported_formats,
+    supported_extensions,
     supported_mime_types
 } from "./merfix.js";
 
 async function setup() {
     await init(); // Load WebAssembly module
 
-    console.log('>> supported formats', supported_formats());
+    console.log('>> supported extensions', supported_extensions());
     console.log('>> supported mime types', supported_mime_types());
 
     document.getElementById("process-btn").addEventListener("click", async () => {
@@ -29,7 +29,7 @@ async function setup() {
         const raw = new Uint8Array(arrayBuffer);
         const result = remove_exif(raw, fileExtension);
 
-        const detectedType = detect_image_type(raw);
+        const detectedType = detect_image_mime_type(raw);
         console.log('>> detected type', detectedType);
 
         const detectedExtension = detect_image_extension(raw);
