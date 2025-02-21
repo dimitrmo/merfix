@@ -8,3 +8,8 @@ build:
 .PHONY: run
 run: build
 	npx http-server web 8000
+
+.PHONY: npm-publish
+npm-publish:
+	cd web && \
+		npm publish
