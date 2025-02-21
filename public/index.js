@@ -1,10 +1,11 @@
 import init, {
+    version,
     remove_exif,
     detect_image_mime_type,
     detect_image_extension,
     supported_extensions,
     supported_mime_types
-} from 'https://cdn.jsdelivr.net/npm/merfix@0/merfix.min.js';
+} from 'https://cdn.jsdelivr.net/npm/merfix@0.1.23/merfix.min.js';
 
 async function setup() {
     await init(); // Load WebAssembly module
@@ -66,4 +67,4 @@ async function setup() {
     });
 }
 
-setup().then(_ => console.log('>> setup ready'));
+setup().then(_ => console.log('>> setup ready', version()));
