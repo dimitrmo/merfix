@@ -55,8 +55,8 @@ export function supported_mime_types() {
 /**
  * @returns {any[]}
  */
-export function supported_formats() {
-    const ret = wasm.supported_formats();
+export function supported_extensions() {
+    const ret = wasm.supported_extensions();
     var v1 = getArrayJsValueFromWasm0(ret[0], ret[1]).slice();
     wasm.__wbindgen_free(ret[0], ret[1] * 4, 4);
     return v1;
@@ -74,10 +74,10 @@ function passArray8ToWasm0(arg, malloc) {
  * @param {Uint8Array} data
  * @returns {string | undefined}
  */
-export function detect_image_type(data) {
+export function detect_image_mime_type(data) {
     const ptr0 = passArray8ToWasm0(data, wasm.__wbindgen_malloc);
     const len0 = WASM_VECTOR_LEN;
-    const ret = wasm.detect_image_type(ptr0, len0);
+    const ret = wasm.detect_image_mime_type(ptr0, len0);
     let v2;
     if (ret[0] !== 0) {
         v2 = getStringFromWasm0(ret[0], ret[1]).slice();

@@ -74,7 +74,7 @@ pub fn supported_mime_types() -> Vec<JsValue> {
 }
 
 #[wasm_bindgen]
-pub fn supported_formats() -> Vec<JsValue> {
+pub fn supported_extensions() -> Vec<JsValue> {
     let metadata_types = vec![
         "jpg", "jpeg",
         "png",
@@ -87,7 +87,7 @@ pub fn supported_formats() -> Vec<JsValue> {
 }
 
 #[wasm_bindgen]
-pub fn detect_image_type(data: &[u8]) -> Option<String> {
+pub fn detect_image_mime_type(data: &[u8]) -> Option<String> {
     match image::guess_format(data) {
         Ok(format) => match format {
             image::ImageFormat::Jpeg => Some("image/jpeg".to_string()),  // JPEG & JFIF
