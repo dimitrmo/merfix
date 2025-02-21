@@ -53,4 +53,4 @@ async function setup() {
     });
 }
 
-setup().then(r => console.log('>> setup ready'));
+setup().then(_ => console.log('>> setup ready'));
