@@ -18,6 +18,14 @@ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 | ```detect_image_extension``` | Detects image extension based on data content of the image | Uint8Array         |
 | ```remove_exif```            | Removes all the EXIF metadata from the image               | Uint8Array, String |
 
+## CDN
+
+```
+https://cdn.jsdelivr.net/npm/merfix@0/merfix.min.js
+https://cdn.jsdelivr.net/npm/merfix@0.1/merfix.min.js
+https://cdn.jsdelivr.net/npm/merfix@0.1.19/merfix.min.js
+```
+
 ## JavaScript Integration
 
 ```TODO```
