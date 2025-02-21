@@ -90,6 +90,7 @@ jobs:
           
           [skip ci]
           "
+          git tag -a ${{ steps.verison.outputs.next_version }}
 
           git push origin $GIT_BRANCH
           git push origin $GIT_BRANCH --tags
