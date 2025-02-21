@@ -95,6 +95,12 @@ jobs:
           git push origin $GIT_BRANCH
           git push origin $GIT_BRANCH --tags
 
+      - name: NPM publish
+        run: |
+          make npm-publish
+        env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}
+
       - name: Cleanup
         uses: geekyeggo/delete-artifact@v5
         with:
