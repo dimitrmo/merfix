@@ -1,7 +1,7 @@
 {
   "name": "merfix",
   "type": "module",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "files": [
     "merfix_bg.wasm",
     "merfix.js",
