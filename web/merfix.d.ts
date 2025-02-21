@@ -1,6 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
-export function remove_exif(input: Uint8Array): ExifRemovalResult;
+export function supported_formats(): any[];
+export function remove_exif(input: Uint8Array, extension: string): ExifRemovalResult;
 export enum ExifRemovalStatus {
   Success = 0,
   Error = 1,
@@ -23,10 +24,13 @@ export interface InitOutput {
   readonly exifremovalresult_is_error: (a: number) => number;
   readonly exifremovalresult_get_data: (a: number) => [number, number];
   readonly exifremovalresult_get_error: (a: number) => [number, number];
-  readonly remove_exif: (a: number, b: number) => number;
+  readonly supported_formats: () => [number, number];
+  readonly remove_exif: (a: number, b: number, c: number, d: number) => number;
   readonly __wbindgen_export_0: WebAssembly.Table;
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
+  readonly __externref_drop_slice: (a: number, b: number) => void;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
+  readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
   readonly __wbindgen_start: () => void;
 }
 
