@@ -12,4 +12,4 @@ run: build
 .PHONY: npm-publish
 npm-publish:
 	cd web && \
-		npm publish
+		npm publish --access public
