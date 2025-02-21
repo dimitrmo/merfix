@@ -1,9 +1,10 @@
-import init, { remove_exif, supported_formats } from "./merfix.js";
+import init, { remove_exif, supported_formats, supported_mime_types } from "./merfix.js";
 
 async function setup() {
     await init(); // Load WebAssembly module
 
     console.log('>> supported formats', supported_formats());
+    console.log('>> supported mime types', supported_mime_types());
 
     document.getElementById("process-btn").addEventListener("click", async () => {
         const fileInput = document.getElementById("file-input");

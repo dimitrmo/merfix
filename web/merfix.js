@@ -45,6 +45,16 @@ function getArrayJsValueFromWasm0(ptr, len) {
 /**
  * @returns {any[]}
  */
+export function supported_mime_types() {
+    const ret = wasm.supported_mime_types();
+    var v1 = getArrayJsValueFromWasm0(ret[0], ret[1]).slice();
+    wasm.__wbindgen_free(ret[0], ret[1] * 4, 4);
+    return v1;
+}
+
+/**
+ * @returns {any[]}
+ */
 export function supported_formats() {
     const ret = wasm.supported_formats();
     var v1 = getArrayJsValueFromWasm0(ret[0], ret[1]).slice();
