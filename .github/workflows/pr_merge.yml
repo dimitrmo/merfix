@@ -67,6 +67,10 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "github-actions@users.noreply.github.com"
 
+      - name: Setup wasm
+        run: |
+          cargo install wasm-pack
+
       - name: Build
         run: |
           make build
