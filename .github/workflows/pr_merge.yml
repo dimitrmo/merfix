@@ -58,7 +58,6 @@ jobs:
         id: verison
         uses: dimitrmo/cargo-verison-action@v1.0.25
         with:
-          workspace: true
           skip-install: true
           message: |
             Release %s
