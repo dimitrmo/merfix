@@ -115,8 +115,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           makeLatest: true
-          name: Release ${{ steps.verison.outputs.next_version }}
-          tag: v${{ steps.verison.outputs.next_version }}
+          tag: ${{ steps.verison.outputs.next_version }}
 
       - name: Cleanup
         uses: geekyeggo/delete-artifact@v5
