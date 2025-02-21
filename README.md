@@ -26,6 +26,10 @@ https://cdn.jsdelivr.net/npm/merfix@0.1/merfix.min.js
 https://cdn.jsdelivr.net/npm/merfix@0.1.19/merfix.min.js
 ```
 
+## Demo
+
+https://dimitrmo.github.io/merfix/
+
 ## JavaScript Integration
 
 ```TODO```
