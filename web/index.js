@@ -13,8 +13,16 @@ async function setup() {
         const fileName = file.name;
         const fileExtension = fileName.split('.').pop();
 
+        console.log('>> file name', fileName);
+        console.log('>> file extension', fileExtension);
+
         const arrayBuffer = await file.arrayBuffer();
         const result = remove_exif(new Uint8Array(arrayBuffer), fileExtension);
+
+        if (result.is_error()) {
+            console.error(">> error", result.get_error());
+        }
+
         const processedBytes = result.get_data();
 
         // Create downloadable image
@@ -29,4 +37,4 @@ async function setup() {
     });
 }
 
-setup().then(r => console.log('setup ready'));
+setup().then(r => console.log('>> setup ready'));
