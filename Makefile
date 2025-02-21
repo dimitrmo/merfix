@@ -5,10 +5,6 @@ build:
 	cp -rv pkg/* web
 	cd web && npm install
 
-.PHONY: run
-run: build
-	npx http-server web 8000
-
 .PHONY: web
 web:
 	npx http-server public -p 8001
