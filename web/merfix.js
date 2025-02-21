@@ -170,6 +170,22 @@ export function remove_exif(input, extension) {
 }
 
 /**
+ * @returns {string}
+ */
+export function version() {
+    let deferred1_0;
+    let deferred1_1;
+    try {
+        const ret = wasm.version();
+        deferred1_0 = ret[0];
+        deferred1_1 = ret[1];
+        return getStringFromWasm0(ret[0], ret[1]);
+    } finally {
+        wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
+    }
+}
+
+/**
  * @enum {0 | 1}
  */
 export const ExifRemovalStatus = Object.freeze({

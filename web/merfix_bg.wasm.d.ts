@@ -11,6 +11,7 @@ export const supported_extensions: () => [number, number];
 export const detect_image_mime_type: (a: number, b: number) => [number, number];
 export const detect_image_extension: (a: number, b: number) => [number, number];
 export const remove_exif: (a: number, b: number, c: number, d: number) => number;
+export const version: () => [number, number];
 export const __wbindgen_export_0: WebAssembly.Table;
 export const __wbindgen_free: (a: number, b: number, c: number) => void;
 export const __externref_drop_slice: (a: number, b: number) => void;

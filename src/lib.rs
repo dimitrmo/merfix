@@ -1,3 +1,5 @@
+include!(concat!(env!("OUT_DIR"), "/version.rs"));
+
 use wasm_bindgen::prelude::*;
 use image::ImageReader;
 use image::ImageFormat;
@@ -161,4 +163,9 @@ pub fn remove_exif(input: &[u8], extension: &str) -> ExifRemovalResult {
         data: Some(output),
         error: None,
     }
+}
+
+#[wasm_bindgen]
+pub fn version() -> String {
+    VERSION.to_string()
 }

@@ -5,6 +5,9 @@ build:
 	cp -rv pkg/* web
 	cd web && npm install
 
+.PHONY: prod
+prod: build
+
 .PHONY: web
 web:
 	npx http-server public -p 8001
