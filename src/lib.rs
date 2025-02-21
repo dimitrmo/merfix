@@ -87,6 +87,38 @@ pub fn supported_formats() -> Vec<JsValue> {
 }
 
 #[wasm_bindgen]
+pub fn detect_image_type(data: &[u8]) -> Option<String> {
+    match image::guess_format(data) {
+        Ok(format) => match format {
+            image::ImageFormat::Jpeg => Some("image/jpeg".to_string()),  // JPEG & JFIF
+            image::ImageFormat::Png => Some("image/png".to_string()),    // PNG
+            image::ImageFormat::WebP => Some("image/webp".to_string()),  // WebP
+            image::ImageFormat::Bmp => Some("image/bmp".to_string()),    // BMP
+            image::ImageFormat::Tiff => Some("image/tiff".to_string()),  // TIFF
+            image::ImageFormat::Gif => Some("image/gif".to_string()),    // GIF
+            _ => None, // Other formats aren't included
+        },
+        Err(_) => None,
+    }
+}
+
+#[wasm_bindgen]
+pub fn detect_image_extension(data: &[u8]) -> Option<String> {
+    match image::guess_format(data) {
+        Ok(format) => match format {
+            image::ImageFormat::Jpeg => Some("jpeg".to_string()),  // JPEG & JFIF
+            image::ImageFormat::Png => Some("png".to_string()),    // PNG
+            image::ImageFormat::WebP => Some("webp".to_string()),  // WebP
+            image::ImageFormat::Bmp => Some("bmp".to_string()),    // BMP
+            image::ImageFormat::Tiff => Some("tiff".to_string()),  // TIFF
+            image::ImageFormat::Gif => Some("gif".to_string()),    // GIF
+            _ => None, // Other formats aren't included
+        },
+        Err(_) => None,
+    }
+}
+
+#[wasm_bindgen]
 pub fn remove_exif(input: &[u8], extension: &str) -> ExifRemovalResult {
     let format = match get_image_format(extension) {
         Some(fmt) => fmt,

@@ -2,6 +2,8 @@
 /* eslint-disable */
 export function supported_mime_types(): any[];
 export function supported_formats(): any[];
+export function detect_image_type(data: Uint8Array): string | undefined;
+export function detect_image_extension(data: Uint8Array): string | undefined;
 export function remove_exif(input: Uint8Array, extension: string): ExifRemovalResult;
 export enum ExifRemovalStatus {
   Success = 0,
@@ -27,6 +29,8 @@ export interface InitOutput {
   readonly exifremovalresult_get_error: (a: number) => [number, number];
   readonly supported_mime_types: () => [number, number];
   readonly supported_formats: () => [number, number];
+  readonly detect_image_type: (a: number, b: number) => [number, number];
+  readonly detect_image_extension: (a: number, b: number) => [number, number];
   readonly remove_exif: (a: number, b: number, c: number, d: number) => number;
   readonly __wbindgen_export_0: WebAssembly.Table;
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
