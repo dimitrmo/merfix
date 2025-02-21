@@ -17,6 +17,7 @@ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 | ```detect_image_mime_type``` | Detects image mime type based on data content of the image | Uint8Array         |
 | ```detect_image_extension``` | Detects image extension based on data content of the image | Uint8Array         |
 | ```remove_exif```            | Removes all the EXIF metadata from the image               | Uint8Array, String |
+| ```version```                | Retrieve version of the library                            | String             |
 
 ## CDN
 

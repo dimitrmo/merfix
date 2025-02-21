@@ -5,6 +5,7 @@ export function supported_extensions(): any[];
 export function detect_image_mime_type(data: Uint8Array): string | undefined;
 export function detect_image_extension(data: Uint8Array): string | undefined;
 export function remove_exif(input: Uint8Array, extension: string): ExifRemovalResult;
+export function version(): string;
 export enum ExifRemovalStatus {
   Success = 0,
   Error = 1,
@@ -32,6 +33,7 @@ export interface InitOutput {
   readonly detect_image_mime_type: (a: number, b: number) => [number, number];
   readonly detect_image_extension: (a: number, b: number) => [number, number];
   readonly remove_exif: (a: number, b: number, c: number, d: number) => number;
+  readonly version: () => [number, number];
   readonly __wbindgen_export_0: WebAssembly.Table;
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __externref_drop_slice: (a: number, b: number) => void;
