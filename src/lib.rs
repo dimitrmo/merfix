@@ -61,6 +61,19 @@ fn get_image_format(extension: &str) -> Option<ImageFormat> {
 }
 
 #[wasm_bindgen]
+pub fn supported_mime_types() -> Vec<JsValue> {
+    let metadata_types = vec![
+        "image/jpeg",
+        "image/png",
+        "image/webp",
+        "image/bmp",
+        "image/tiff", "image/tiff-fx",
+        "image/gif"
+    ];
+    metadata_types.into_iter().map(JsValue::from).collect()
+}
+
+#[wasm_bindgen]
 pub fn supported_formats() -> Vec<JsValue> {
     let metadata_types = vec![
         "jpg", "jpeg",

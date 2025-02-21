@@ -6,6 +6,7 @@ export const exifremovalresult_status: (a: number) => [number, number];
 export const exifremovalresult_is_error: (a: number) => number;
 export const exifremovalresult_get_data: (a: number) => [number, number];
 export const exifremovalresult_get_error: (a: number) => [number, number];
+export const supported_mime_types: () => [number, number];
 export const supported_formats: () => [number, number];
 export const remove_exif: (a: number, b: number, c: number, d: number) => number;
 export const __wbindgen_export_0: WebAssembly.Table;
