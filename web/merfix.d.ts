@@ -1,15 +1,32 @@
 /* tslint:disable */
 /* eslint-disable */
-export function remove_exif(input: Uint8Array): Uint8Array;
+export function remove_exif(input: Uint8Array): ExifRemovalResult;
+export enum ExifRemovalStatus {
+  Success = 0,
+  Error = 1,
+}
+export class ExifRemovalResult {
+  private constructor();
+  free(): void;
+  status(): string;
+  is_error(): boolean;
+  get_data(): Uint8Array | undefined;
+  get_error(): string | undefined;
+}
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly remove_exif: (a: number, b: number) => [number, number];
+  readonly __wbg_exifremovalresult_free: (a: number, b: number) => void;
+  readonly exifremovalresult_status: (a: number) => [number, number];
+  readonly exifremovalresult_is_error: (a: number) => number;
+  readonly exifremovalresult_get_data: (a: number) => [number, number];
+  readonly exifremovalresult_get_error: (a: number) => [number, number];
+  readonly remove_exif: (a: number, b: number) => number;
   readonly __wbindgen_export_0: WebAssembly.Table;
-  readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
+  readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_start: () => void;
 }
 

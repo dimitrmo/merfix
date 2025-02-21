@@ -9,7 +9,8 @@ async function setup() {
 
         const file = fileInput.files[0];
         const arrayBuffer = await file.arrayBuffer();
-        const processedBytes = remove_exif(new Uint8Array(arrayBuffer));
+        const result = remove_exif(new Uint8Array(arrayBuffer));
+        const processedBytes = result.get_data();
 
         // Create downloadable image
         const blob = new Blob([processedBytes], { type: file.type });
