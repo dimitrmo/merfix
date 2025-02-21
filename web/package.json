@@ -1,0 +1,15 @@
+{
+  "name": "merfix",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "merfix_bg.wasm",
+    "merfix.js",
+    "merfix.d.ts"
+  ],
+  "main": "merfix.js",
+  "types": "merfix.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

@@ -1,0 +1,14 @@
+[package]
+name = "merfix"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+wasm-bindgen = {  version = "0.2" }
+
+[profile.release]
+opt-level = "s" # Optimize for size to keep the Wasm file small
