@@ -95,6 +95,11 @@ jobs:
           git push origin $GIT_BRANCH
           git push origin $GIT_BRANCH --tags
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
       - name: NPM publish
         run: |
           make npm-publish
