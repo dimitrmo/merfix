@@ -58,11 +58,18 @@ jobs:
         id: verison
         uses: dimitrmo/cargo-verison-action@v1.0.25
         with:
+          workspace: false
           skip-install: true
-          message: |
-            Release %s
+          git-tag-version: false
 
-            [skip ci]
+      - name: Git Setup
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@users.noreply.github.com"
+
+      - name: Build
+        run: |
+          make build
 
       - name: Extract git branch
         run: |
@@ -73,6 +80,13 @@ jobs:
       - name: Git push
         run: |
           echo "Current branch $GIT_BRANCH"
+          
+          git add .
+          git commit -m "Release ${{ steps.verison.outputs.next_version }}
+          
+          [skip ci]
+          "
+
           git push origin $GIT_BRANCH
           git push origin $GIT_BRANCH --tags
 
