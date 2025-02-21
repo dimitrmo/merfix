@@ -50,11 +50,11 @@ impl ExifRemovalResult {
 
 fn get_image_format(extension: &str) -> Option<ImageFormat> {
     match extension.to_lowercase().as_str() {
-        "jpg" | "jpeg" => Some(ImageFormat::Jpeg),
-        "png" => Some(ImageFormat::Png),
+        "jpg" | "jpeg" | "jfif" => Some(ImageFormat::Jpeg),
+        "png" | "apng" => Some(ImageFormat::Png),
         "webp" => Some(ImageFormat::WebP),
         "bmp" => Some(ImageFormat::Bmp),
-        "tiff" => Some(ImageFormat::Tiff),
+        "tif" | "tiff" => Some(ImageFormat::Tiff),
         "gif" => Some(ImageFormat::Gif),
         _ => None, // Unsupported format
     }
