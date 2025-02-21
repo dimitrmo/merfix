@@ -3,6 +3,7 @@ build:
 	cargo build --release
 	wasm-pack build --target web
 	cp -rv pkg/* web
+	cd web && npm install
 
 .PHONY: run
 run: build

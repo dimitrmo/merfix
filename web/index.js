@@ -12,6 +12,19 @@ async function setup() {
     console.log('>> supported extensions', supported_extensions());
     console.log('>> supported mime types', supported_mime_types());
 
+    document.getElementById("reset-btn").addEventListener("click", async () => {
+        const link = document.getElementById("download-link");
+        if (link) {
+            link.style.display = "none";
+            link.textContent = "Download";
+        }
+
+        const fileInput = document.getElementById("file-input");
+        if (fileInput) {
+            fileInput.value = ""
+        }
+    })
+
     document.getElementById("process-btn").addEventListener("click", async () => {
         const fileInput = document.getElementById("file-input");
         if (!fileInput.files.length) {
