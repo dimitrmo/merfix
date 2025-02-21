@@ -30,6 +30,9 @@ jobs:
       - name: Build release
         run: cargo build --release --verbose
 
+      - name: Build wasm
+        run: wasm-pack build --target web
+
       - name: Run tests
         run: cargo test --verbose -- --test-threads 1
 
