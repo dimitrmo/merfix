@@ -80,7 +80,7 @@ pub fn remove_exif(input: &[u8], extension: &str) -> ExifRemovalResult {
         None => return ExifRemovalResult {
             status: ExifRemovalStatus::Error,
             data: None,
-            error: Some("Unsupported image format".to_string()),
+            error: Some(format!("Unsupported image format: {}", extension)),
         },
     };
 
@@ -89,25 +89,25 @@ pub fn remove_exif(input: &[u8], extension: &str) -> ExifRemovalResult {
     ).with_guessed_format() {
         Ok(reader) => match reader.decode() {
             Ok(decoded) => decoded,
-            Err(_) => return ExifRemovalResult {
+            Err(err) => return ExifRemovalResult {
                 status: ExifRemovalStatus::Error,
                 data: None,
-                error: Some("Failed to decode image".to_string()),
+                error: Some(format!("Failed to decode image: {}", err)),
             },
         },
-        Err(_) => return ExifRemovalResult {
+        Err(err) => return ExifRemovalResult {
             status: ExifRemovalStatus::Error,
             data: None,
-            error: Some("Failed to read image format".to_string()),
+            error: Some(format!("Failed to read image format: {}", err)),
         },
     };
 
     let mut output = Vec::new();
-    if img.write_to(&mut std::io::Cursor::new(&mut output), format).is_err() {
+    if let Err(err) = img.write_to(&mut std::io::Cursor::new(&mut output), format) {
         return ExifRemovalResult {
             status: ExifRemovalStatus::Error,
             data: None,
-            error: Some("Failed to write image".to_string()),
+            error: Some(format!("Failed to write image: {}", err)),
         };
     }
 
