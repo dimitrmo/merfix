@@ -111,6 +111,13 @@ jobs:
           git push origin $GIT_BRANCH
           git push origin $GIT_BRANCH --tags
 
+      - name: Create github release
+        uses: ncipollo/release-action@v1
+        with:
+          makeLatest: true
+          name: Release ${{ steps.verison.outputs.next_version }}
+          tag: v${{ steps.verison.outputs.next_version }}
+
       - name: Cleanup
         uses: geekyeggo/delete-artifact@v5
         with:
