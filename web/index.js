@@ -8,7 +8,9 @@ async function setup() {
 
     document.getElementById("process-btn").addEventListener("click", async () => {
         const fileInput = document.getElementById("file-input");
-        if (!fileInput.files.length) return alert("Select an image");
+        if (!fileInput.files.length) {
+            return alert("Select an image");
+        }
 
         const file = fileInput.files[0];
         const fileName = file.name;
