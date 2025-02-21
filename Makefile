@@ -2,8 +2,7 @@
 build:
 	cargo build --release
 	wasm-pack build --target web
-	cp -rv pkg/* web
-	cd web && npm install
+	cd pkg && npm install
 
 .PHONY: prod
 prod: build
@@ -14,5 +13,5 @@ web:
 
 .PHONY: npm-publish
 npm-publish:
-	cd web && \
+	cd pkg && \
 		npm publish --access public
