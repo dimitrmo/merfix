@@ -5,7 +5,7 @@ import init, {
     detect_image_extension,
     supported_extensions,
     supported_mime_types
-} from 'https://cdn.jsdelivr.net/npm/merfix@0.1.23/merfix.min.js';
+} from 'https://cdn.jsdelivr.net/npm/merfix@0.1.33/merfix.min.js';
 
 async function setup() {
     await init(); // Load WebAssembly module
