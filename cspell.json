@@ -9,7 +9,18 @@
         "devwasm",
         "jungaretti",
         "protoc",
-        "exif"
+        "exif",
+        "merfix",
+        "cdylib",
+        "rlib",
+        "bindgen",
+        "webp",
+        "jfif",
+        "apng",
+        "verison",
+        "dimitrmo",
+        "ncipollo",
+        "geekyeggo"
     ],
     "ignoreWords": [],
     "import": []

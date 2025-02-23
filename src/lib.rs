@@ -55,9 +55,7 @@ fn get_image_format(extension: &str) -> Option<ImageFormat> {
         "jpg" | "jpeg" | "jfif" => Some(ImageFormat::Jpeg),
         "png" | "apng" => Some(ImageFormat::Png),
         "webp" => Some(ImageFormat::WebP),
-        "bmp" => Some(ImageFormat::Bmp),
         "tif" | "tiff" => Some(ImageFormat::Tiff),
-        "gif" => Some(ImageFormat::Gif),
         _ => None, // Unsupported format
     }
 }
@@ -68,9 +66,7 @@ pub fn supported_mime_types() -> Vec<JsValue> {
         "image/jpeg",
         "image/png",
         "image/webp",
-        "image/bmp",
-        "image/tiff", "image/tiff-fx",
-        "image/gif"
+        "image/tiff", "image/tiff-fx"
     ];
     metadata_types.into_iter().map(JsValue::from).collect()
 }
@@ -81,9 +77,7 @@ pub fn supported_extensions() -> Vec<JsValue> {
         "jpg", "jpeg",
         "png",
         "webp",
-        "bmp",
-        "tiff",
-        "gif"
+        "tiff"
     ];
     metadata_types.into_iter().map(JsValue::from).collect()
 }
@@ -95,9 +89,7 @@ pub fn detect_image_mime_type(data: &[u8]) -> Option<String> {
             image::ImageFormat::Jpeg => Some("image/jpeg".to_string()),  // JPEG & JFIF
             image::ImageFormat::Png => Some("image/png".to_string()),    // PNG
             image::ImageFormat::WebP => Some("image/webp".to_string()),  // WebP
-            image::ImageFormat::Bmp => Some("image/bmp".to_string()),    // BMP
             image::ImageFormat::Tiff => Some("image/tiff".to_string()),  // TIFF
-            image::ImageFormat::Gif => Some("image/gif".to_string()),    // GIF
             _ => None, // Other formats aren't included
         },
         Err(_) => None,
@@ -110,10 +102,8 @@ pub fn detect_image_extension(data: &[u8]) -> Option<String> {
         Ok(format) => match format {
             image::ImageFormat::Jpeg => Some("jpeg".to_string()),  // JPEG & JFIF
             image::ImageFormat::Png => Some("png".to_string()),    // PNG
-            image::ImageFormat::WebP => Some("webp".to_string()),  // WebP
-            image::ImageFormat::Bmp => Some("bmp".to_string()),    // BMP
-            image::ImageFormat::Tiff => Some("tiff".to_string()),  // TIFF
-            image::ImageFormat::Gif => Some("gif".to_string()),    // GIF
+            image::ImageFormat::WebP => Some("webp".to_string()),  // WebP            
+            image::ImageFormat::Tiff => Some("tiff".to_string()),  // TIFF            
             _ => None, // Other formats aren't included
         },
         Err(_) => None,
