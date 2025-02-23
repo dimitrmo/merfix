@@ -10,7 +10,7 @@ description = "Utility to remove EXIF metadata from images from browser"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp", "bmp", "tiff", "gif"] }
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp", "tiff"] }
 wasm-bindgen = {  version = "0.2" }
 
 [profile.release]
