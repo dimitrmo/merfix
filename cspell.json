@@ -8,7 +8,8 @@
         "devcontainers",
         "devwasm",
         "jungaretti",
-        "protoc"
+        "protoc",
+        "exif"
     ],
     "ignoreWords": [],
     "import": []
