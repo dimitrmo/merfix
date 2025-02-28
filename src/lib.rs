@@ -110,15 +110,19 @@ pub fn detect_image_extension(data: &[u8]) -> Option<String> {
     }
 }
 
+fn prepare_error(error_message: String) -> ExifRemovalResult {
+    return ExifRemovalResult {
+        status: ExifRemovalStatus::Error,
+        data: None,
+        error: Some(error_message),
+    }
+}
+
 #[wasm_bindgen]
 pub fn remove_exif(input: &[u8], extension: &str) -> ExifRemovalResult {
     let format = match get_image_format(extension) {
         Some(fmt) => fmt,
-        None => return ExifRemovalResult {
-            status: ExifRemovalStatus::Error,
-            data: None,
-            error: Some(format!("Unsupported image format: {}", extension)),
-        },
+        None => return prepare_error(format!("Unsupported image format: {}", extension)),
     };
 
     let img = match ImageReader::new(
@@ -126,26 +130,14 @@ pub fn remove_exif(input: &[u8], extension: &str) -> ExifRemovalResult {
     ).with_guessed_format() {
         Ok(reader) => match reader.decode() {
             Ok(decoded) => decoded,
-            Err(err) => return ExifRemovalResult {
-                status: ExifRemovalStatus::Error,
-                data: None,
-                error: Some(format!("Failed to decode image: {}", err)),
-            },
+            Err(err) => return prepare_error(format!("Failed to decode image: {}", err))
         },
-        Err(err) => return ExifRemovalResult {
-            status: ExifRemovalStatus::Error,
-            data: None,
-            error: Some(format!("Failed to read image format: {}", err)),
-        },
+        Err(err) => return prepare_error(format!("Failed to read image format: {}", err))
     };
 
     let mut output = Vec::new();
     if let Err(err) = img.write_to(&mut std::io::Cursor::new(&mut output), format) {
-        return ExifRemovalResult {
-            status: ExifRemovalStatus::Error,
-            data: None,
-            error: Some(format!("Failed to write image: {}", err)),
-        };
+        return prepare_error(format!("Failed to write image: {}", err));
     }
 
     ExifRemovalResult {

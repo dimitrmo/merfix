@@ -24,7 +24,7 @@ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 ```
 https://cdn.jsdelivr.net/npm/merfix@0/merfix.min.js
 https://cdn.jsdelivr.net/npm/merfix@0.1/merfix.min.js
-https://cdn.jsdelivr.net/npm/merfix@0.1.19/merfix.min.js
+https://cdn.jsdelivr.net/npm/merfix@0.1.35/merfix.min.js
 ```
 
 NPM
