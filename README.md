@@ -1,5 +1,7 @@
 # merfix
 
+Remove EXIF from supported image with the power of love and wasm.
+
 ## Requirements
 
 ### Install wasm-pack
@@ -41,4 +43,4 @@ https://dimitrmo.github.io/merfix/
 
 ## JavaScript Integration
 
-```TODO```
+See https://github.com/dimitrmo/merfix/blob/master/public/index.js
