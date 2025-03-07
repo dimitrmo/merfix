@@ -67,4 +67,6 @@ async function setup() {
     });
 }
 
-setup().then(_ => console.log('>> setup ready', version()));
+document.addEventListener("DOMContentLoaded", (event) => {
+    setup().then(_ => console.log('>> setup ready', version()));
+});
