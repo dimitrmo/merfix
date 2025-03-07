@@ -1,6 +1,6 @@
 # merfix
 
-Remove EXIF from supported image with the power of love and wasm.
+Remove EXIF from supported images with the power of love and wasm.
 
 ## Requirements
 
