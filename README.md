@@ -37,9 +37,7 @@ https://www.npmjs.com/package/merfix
 
 ## Demo
 
-```
-https://dimitrmo.github.io/merfix/
-```
+See https://dimitrmo.github.io/merfix/
 
 ## JavaScript Integration
 
