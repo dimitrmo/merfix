@@ -50,7 +50,7 @@ impl ExifRemovalResult {
     }
 }
 
-fn get_image_format(extension: &str) -> Option<ImageFormat> {
+pub fn get_image_format(extension: &str) -> Option<ImageFormat> {
     match extension.to_lowercase().as_str() {
         "jpg" | "jpeg" | "jfif" => Some(ImageFormat::Jpeg),
         "png" | "apng" => Some(ImageFormat::Png),
