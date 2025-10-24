@@ -25,7 +25,7 @@ jobs:
           skip-bump: true
 
       - name: Store binary
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: cargo-verison
           path: ~/.cargo/bin/cargo-verison
