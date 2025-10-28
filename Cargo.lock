@@ -138,7 +138,7 @@ dependencies = [
 
 [[package]]
 name = "merfix"
-version = "0.1.66"
+version = "0.1.67"
 dependencies = [
  "image",
  "wasm-bindgen",
@@ -156,9 +156,9 @@ dependencies = [
 
 [[package]]
 name = "moxcms"
-version = "0.7.7"
+version = "0.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c588e11a3082784af229e23e8e4ecf5bcc6fbe4f69101e0421ce8d79da7f0b40"
+checksum = "0fbdd3d7436f8b5e892b8b7ea114271ff0fa00bc5acae845d53b07d498616ef6"
 dependencies = [
  "num-traits",
  "pxfm",
