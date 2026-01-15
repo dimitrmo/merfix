@@ -14,4 +14,4 @@ web:
 .PHONY: npm-publish
 npm-publish:
 	cd pkg && \
-		npm publish --access public
+		npm publish  --provenance --access public
