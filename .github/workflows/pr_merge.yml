@@ -47,7 +47,7 @@ jobs:
           git config user.email "$CARGO_TAG_EMAIL"
 
       - name: Cargo Verison Setup
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: cargo-verison
           path: ~/.cargo/bin/
